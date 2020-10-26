@@ -24,7 +24,7 @@ nav ul,
 }
 
 body  {
-  background-color: #252627;
+  background-color: #02203C;
 }
 
 header {
@@ -37,7 +37,7 @@ header {
 }
 
 .navbar {
-  background-color: #181818;
+  background-color: #02203C;
 }
 
 header h1,
@@ -144,8 +144,9 @@ span.m-left {
 }
 
 .profile-image img{
-  width: 450px;
-  margin-top: 50px; 
+  width: 250px;
+  margin-top: 50px;
+  margin-right: 30%;
 }
 
 .about {
