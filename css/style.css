@@ -23,6 +23,14 @@ nav ul,
 
 }
 
+.navbar a:hover {
+  color: white
+}
+
+.lgo h1:hover {
+  color: #48CFAD
+}
+
 body  {
   background-color: #02203C;
 }
@@ -47,7 +55,7 @@ header a,
 .skills h1,
 .work h1,
 .contact h1 {
-    color: #707070
+    color: white
 }
 
 li {
@@ -144,9 +152,10 @@ span.m-left {
 }
 
 .profile-image img{
-  width: 250px;
-  margin-top: 50px;
+  width: 700px;
+  margin-top: 10%;
   margin-right: 30%;
+  box-shadow: 0px 0px 8px 1px gray;
 }
 
 .about {
