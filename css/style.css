@@ -24,11 +24,13 @@ nav ul,
 }
 
 .navbar a:hover {
-  color: white
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .lgo h1:hover {
-  color: #48CFAD
+  color: #48CFAD;
+  cursor: pointer;
 }
 
 body  {
@@ -93,6 +95,7 @@ a {
 
 .text span {
   display: inline-block;
+  cursor: pointer;
 }
 
 span:hover {
