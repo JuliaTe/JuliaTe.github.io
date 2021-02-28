@@ -1,0 +1,30 @@
+{
+  "name": "juliathea_v2",
+  "version": "1.0.0",
+  "engines": {
+    "node": "15.x"
+  },
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julia-thea/julia-thea.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julia-thea/julia-thea.github.io/issues"
+  },
+  "homepage": "https://github.com/julia-thea/julia-thea.github.io#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.4.0",
+    "nodemon": "^2.0.7"
+  }
+}
