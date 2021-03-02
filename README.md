@@ -3,7 +3,7 @@
 
 ## Install
 
-npm install
+```npm install```
 
 ## Contact form setup
 
