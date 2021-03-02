@@ -28,6 +28,6 @@ npm start to run on port 8000.
 # Dependencies
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
-- [dotenv] (https://www.npmjs.com/package/dotenv) loads environment variables from the .env file into process.env
+- [dotenv](https://www.npmjs.com/package/dotenv) loads environment variables from the .env file into process.env
 - [Nodemailer](https://nodemailer.com/about/) sends email from the contact form
 
