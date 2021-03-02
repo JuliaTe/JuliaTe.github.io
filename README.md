@@ -9,7 +9,7 @@
 
 Currently, app.js is set up to use Gmail to send mail using [Nodemailer](https://nodemailer.com/about/). To create your own instance of this app, you would need to add your Gmail account and [an application-specific password](https://support.google.com/accounts/answer/185833?hl=en) to the environment:
 ```
-export GMAIL_USER=youremailaddress@gmail.com <br>
+export GMAIL_USER=youremailaddress@gmail.com 
 export GMAIL_PASS=YourGoogleAppSpecificPassword
 ```
 
