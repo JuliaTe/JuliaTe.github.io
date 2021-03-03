@@ -113,16 +113,29 @@
     </div>
   </div>
 
-  <div class="container contact" id="contact">
-    <h1>Contact</h1>
-    <form>
-      <input type="text" name="name" placeholder="Full Name">
-      <input type="text" placeholder="Email">
-      <input type="email" placeholder="jdoe@email.com" disabled>
-      <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
-      <input type="submit" placeholder="Submit Email">
-    </form>
-  </div>
+  <form action="/" id="contact-form" method="post" role="form">
+    <div class="container contact" id="contact">
+      <h1>Contact</h1>
+      <form>
+        <input id="name" 
+        name="name" 
+        type="text" 
+        placeholder="Your name" 
+        required>
+        <input     id="email" 
+        name="email" 
+        type="text" 
+        placeholder="Your email" 
+        required>
+        <!-- <input type="email" placeholder="jdoe@email.com" disabled> -->
+        <textarea cols="30" rows="10" id="message" 
+        name="message" 
+        placeholder="Enter your message here" 
+        required ></textarea>
+        <input type="submit" placeholder="Submit Email">
+      </form>
+    </div>
+  </form>
   <footer>
     <hr>
     <p>Built with ❤️ and ☕️ by Julia Thea</p>
