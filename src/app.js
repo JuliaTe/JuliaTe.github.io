@@ -2,7 +2,8 @@ var express = require('express');
 var nodemailer = require('nodemailer');
 var app = express();
 var path = require('path');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
+require('dotenv').config();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../public')));
