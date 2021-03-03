@@ -1,7 +1,7 @@
 var express = require('express');
+var nodemailer = require('nodemailer');
 var app = express();
 var path = require('path');
-const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,15 +20,15 @@ app.post('/', (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: GMAIL_USER,
-        pass: GMAIL_PASS
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
       }
     })
   
     // Specify what the email will look like
     const mailOpts = {
       from: 'Your sender info here', // This is ignored by Gmail
-      to: GMAIL_USER,
+      to: process.env.GMAIL_USER,
       subject: 'New message from contact form at juliathea.com',
       text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
     }
@@ -36,10 +36,10 @@ app.post('/', (req, res) => {
     // Attempt to send the email
     smtpTrans.sendMail(mailOpts, (error, response) => {
       if (error) {
-        res.render('contact-failure') // Show a page indicating failure
+        res.send(error) // Show a page indicating failure
       }
       else {
-        res.render('contact-success') // Show a page indicating success
+        res.send('Success') // Show a page indicating success
       }
     })
   })
