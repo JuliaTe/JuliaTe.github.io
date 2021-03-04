@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 // Setup public directory to serve
 app.use(express.static('./public'));
 
-//middlewares
+// Middleware
 app.use(cookieParser())
 app.use(session({
     secret: 'secret',
@@ -31,35 +31,13 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.get('/',function (req, res) {
-  res.render('pages/index.ejs')
+  console.log("Landing Page")
+  res.render('pages/index.ejs', { message : req.flash('message') })
 });
-
-
-//routes
-// app.get('/', function (req, res) {
-//     res.sendFile(path.join(__dirname, '../index.html'));
-// });
-
-app.get('/flash', function(req, res){
-    // Set a flash message by passing the key, followed by the value, to req.flash().
-
-
-
-    try {
-      console.log('Yo1')
-      req.flash('info', 'Flash is back!')
-      console.log('Yo2')
-    } catch (error) {
-      console.error(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
-    }
-    // res.redirect('/');
-  });
 
 // POST route from contact form
 app.post('/', (req, res) => {
-
+    console.log(req.body);
     // Instantiate the SMTP server
 
     const smtpTrans = nodemailer.createTransport({
@@ -83,21 +61,12 @@ app.post('/', (req, res) => {
     // Attempt to send the email
     smtpTrans.sendMail(mailOpts, (error, response) => {
       if (error) {
-        req.flash("message","something went wrong please try again later.")
-        res.send(error) // Show a page indicating failure
-
+        req.flash('message', 'Please try again later');
+        res.send("Please try again later");
       }
       else {
-        req.flash("message","successfully send email to Jules.")
-        console.log("Test")
-        // res.send('Success') // Show a page indicating success
-    // res.sendFile(path.join(__dirname, '../index.html'));
-    res.render("/Users/intergalacticstardust/Projects/JuliaThea_v2/index.htmlindex",function(err,html){
-      console.log(err);
-      console.log(html);
-    })
-    console.log("Testa2")
-        // req.flash('info', 'Flash is back!');
+        req.flash('message', 'Submitted successfully');
+        res.send("Submitted successfully!");
       }
     })
   })
