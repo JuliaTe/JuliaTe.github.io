@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta property="og:title" content="Julia Thea Full-stack Web Developer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:url" content="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2250&q=80" />
+  <meta property="og:url" content="https://juliathea.com" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Julia Thea Portfolio</title>
+</head>
+<body>
+  <h1>HEader Isaiah</h1>
+  <script>
+    function postCall(event){
+      alert("postCall")
+      event.preventDefault();
+      var formData = {}
+      var inputData = document.getElementById("contact-form").elements;
+      for(var i = 0; i < inputData.length; i++){
+        formData[inputData[i].name] = inputData[i].value;
+      }
+
+      $.post("/", formData,function(data, status){
+        alert(status);
+        var messageElement = document.getElementById("babesMessage");
+        // messageElement.append(messageElement)
+        });
+      // console.log(formData);
+
+
+    }
+    $.post( "/", function( data ) {
+  // alert(data);
+  });
+  </script>
+  <form onsubmit = "return postCall(event)"  id="contact-form">
+    <div class="container contact" id="contact">
+      <h1>Contact</h1>
+      <form>
+        <input id="name"
+        name="name"
+        type="text"
+        placeholder="Your name"
+        required>
+        <input     id="email"
+        name="email"
+        type="text"
+        placeholder="Your email"
+        required>
+        <!-- <input type="email" placeholder="jdoe@email.com" disabled> -->
+        <textarea cols="30" rows="10" id="message"
+        name="message"
+        placeholder="Enter your message here"
+        required ></textarea>
+        <input type="submit" name = "button" placeholder="Submit Email">
+        <div class = "messages"><h1 id="babesMessage"></h1></div>
+      </form>
+    </div>
+  </form>
+</body>
+
+</html>

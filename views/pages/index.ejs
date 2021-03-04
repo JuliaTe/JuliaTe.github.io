@@ -8,6 +8,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:image:url" content="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2250&q=80" />
   <meta property="og:url" content="https://juliathea.com" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+    <script src="../../public/js/script.js"></script>
   <link rel="stylesheet" href="css/style.css" />
   <title>Julia Thea Portfolio</title>
 </head>
@@ -116,7 +119,30 @@
     </div>
   </div>
 
-  <form action="/" id="contact-form" method="post" role="form">
+  <script>
+    function postCall(event){
+      event.preventDefault();
+      var formData = {}
+      var inputData = document.getElementById("contact-form").elements;
+      for(var i = 0; i < inputData.length; i++){
+        formData[inputData[i].name] = inputData[i].value;
+      }
+
+      $.post("/", formData,function(data, status){
+        alert(data);
+
+        // Implement later a popup message on the lower bottom corner of the page
+        // var messageElement = document.getElementById("popupMessage");
+        // messageElement.append(messageElement)
+        // <div class = "messages"><h1 id="babesMessage"></h1></div>
+        });
+    }
+  </script>
+
+  <form onsubmit = "return postCall(event)" id="contact-form">
+
+    <!-- <form onsubmit = "return postCall(event)"  action="/" id="contact-form" method="post" role="form"> -->
+
     <div class="container contact" id="contact">
       <h1>Contact</h1>
       <form>
@@ -139,16 +165,11 @@
       </form>
     </div>
   </form>
-<script>
-  if(message && message.length > 0){
-    alert(message[0]);
-  }
-</script>
   <footer>
     <hr>
     <p>Built with ❤️ and ☕️ by Julia Thea</p>
   </footer>
-  <script src="/public/js/script.js"></script>
+  <!-- <script src="../../public/js/script.js"></script> -->
 </body>
 
 </html>
