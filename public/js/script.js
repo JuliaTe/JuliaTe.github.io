@@ -121,3 +121,22 @@ $(function()
 
       });
 });
+
+// Function that handles confirmation message on the form submit event -- this is not currently accessed by HTML correctly
+function postCall(event){
+    event.preventDefault();
+    var formData = {}
+    var inputData = document.getElementById("contact-form").elements;
+    for(var i = 0; i < inputData.length; i++){
+      formData[inputData[i].name] = inputData[i].value;
+    }
+
+    $.post("/", formData,function(data, status){
+      alert(status);
+    //   var messageElement = document.getElementById("popup message");
+    //   messageElement.append(messageElement)
+      });
+    // console.log(formData);
+
+
+  }
