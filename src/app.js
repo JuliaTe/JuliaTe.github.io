@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Routes
 app.get('/',function (req, res) {
   console.log("Landing Page")
-  res.render('pages/index.ejs', { message : req.flash('message') })
+  res.status(200).render('pages/index.ejs', { message : req.flash('message') })
 });
 
 // POST route from contact form
