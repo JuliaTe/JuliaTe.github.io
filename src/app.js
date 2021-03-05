@@ -37,39 +37,39 @@ app.get('/',function (req, res) {
 
 // POST route from contact form
 app.post('/', (req, res) => {
-    console.log(req.body);
-    // Instantiate the SMTP server
+  console.log(req.body);
+  // Instantiate the SMTP server
 
-    const smtpTrans = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-      }
-    })
+  const smtpTrans = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
+   }
+  })
 
     // Specify what the email will look like
-    const mailOpts = {
-      from: 'Your sender info here', // This is ignored by Gmail
-      to: process.env.GMAIL_USER,
-      subject: 'New message from contact form at juliathea.com',
-      text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
-    }
+  const mailOpts = {
+    from: 'Your sender info here', // This is ignored by Gmail
+    to: process.env.GMAIL_USER,
+    subject: 'New message from contact form at juliathea.com',
+    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+  }
 
-    // Attempt to send the email
-    smtpTrans.sendMail(mailOpts, (error, response) => {
-      if (error) {
-        req.flash('message', 'Please try again later');
-        res.send("Please try again later");
-      }
-      else {
-        req.flash('message', 'Submitted successfully');
-        res.send("Submitted successfully!");
-      }
-    })
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      req.flash('message', 'Please try again later');
+      res.send("Please try again later");
+    }
+    else {
+      req.flash('message', 'Submitted successfully');
+      res.send("Submitted successfully!");
+    }
   })
+})
 
 app.listen(process.env.PORT || 8000, function () {
     console.log('Server is up on port 8000');
