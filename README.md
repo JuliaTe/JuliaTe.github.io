@@ -1,5 +1,6 @@
 # Express-Portfolio
 Travis CI build of master branch: [![Travis CI build of master branch](https://travis-ci.com/julia-thea/julia-thea.github.io.svg?branch=master)](https://travis-ci.com/github/julia-thea/julia-thea.github.io)
+
 **Express-Portfolio** serves my [portfolio](https://juliathea.com) website. It includes a project gallery, a short bio, a downloadable resume, and an email contact form.
 
 ## Install
