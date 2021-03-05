@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * ```chai``` v4.3.3, ```mocha``` v8.3.0
 
 ### Changed
+* Previous `test` script in `package.json` changed to `test:mocha`.
 
 ### Removed
 * ```hbs``` - using ```ejs``` instead
